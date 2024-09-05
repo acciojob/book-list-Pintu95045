@@ -1,66 +1,76 @@
 /*  your css code here. If applicable */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+}
 body {
-        font-family: sans-serif;
-      }
-      h1 {
-        text-align: center;
-      }
-      span {
-        color: blue;
-      }
-      input {
-        margin: 10px;
-        width: 95vw;
-        height: 4.5vh;
-        border-radius: 5px;
-        border: 0.1rem solid #e6e9ed;
-      }
-      label,
-      button {
-        margin-left: 10px;
-      }
-      button {
-        border-radius: 5px;
-        width: 105px;
-        height: 40px;
-        background-color: #1a77f2ff;
-        color: white;
-        border: none;
-        font-size: large;
-      }
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 300;
+  padding: 30px;
+}
+#header{
+	color:blue;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+.form-group input {
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
 
-      #submit:hover {
-        border: none;
-      }
+.form-group button {
+  padding: 5px 10px;
+  border: none;
+  background-color: rgb(14, 111, 253);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
 
-      thead {
-        height: 40px;
-        font-size: large;
-        border-bottom: 3px solid black;
-      }
+.form-group button:hover {
+  box-shadow: 2px 2px 2px rgb(152, 193, 254), -2px 2px 2px rgb(152, 193, 254),
+    2px -2px rgb(152, 193, 254), -2px -2px rgb(152, 193, 254);
+}
 
-      .table {
-        width: 90vw;
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        border-collapse: collapse;
-      }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
 
-      .delete {
-        background-color: #dc3545;
-        color: white;
-        width: 30px;
-        height: 10px;
-        padding: auto;
-        text-align: center;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      tr td {
-        text-align: center;
-        margin-top: 40%;
-        background-color: #f2f2f2;
-        height: 40px;
-        border-bottom: 1px solid #dee2e6;
-      }
+.table > tbody tr {
+  background-color: rgb(242, 242, 242);
+}
+
+.table td {
+  padding: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bebebe;
+}
+
+.delete {
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete > span {
+  color: white;
+}

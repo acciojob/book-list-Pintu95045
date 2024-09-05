@@ -1,37 +1,30 @@
 //your JS code here. If required.
 const form = document.querySelector(".form-group");
-      const submit = document.getElementById("submit");
-      const tbody = document.getElementById("book-list");
 
-      function deleteRecod(event) {
-        const deleteButton = event.target;
-        const record = deleteButton.parentNode;
-        record.remove();
-      }
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-      const addBook = (event) => {
-        event.preventDefault();
-        const obj = {
-          title: form["title"].value,
-          author: form["author"].value,
-          isbn: form["isbn"].value,
-        };
-        form.reset();
-        createNewRecord(obj);
-      };
+  const tbody = document.querySelector("#book-list");
+  const row = document.createElement("tr");
 
-      function createNewRecord(data) {
-        const row = document.createElement("tr");
-        for (let key in data) {
-          const cell = document.createElement("td");
-          cell.innerText = data[key];
-          row.appendChild(cell);
-        }
-        const clear = document.createElement("td");
-        clear.innerText = "X";
-        clear.className = "delete";
-        clear.addEventListener("click", deleteRecod);
-        row.appendChild(clear);
-        tbody.appendChild(row);
-      }
-      submit.addEventListener("click", addBook);
+  ["title", "author", "isbn"].forEach(function (field) {
+    const cell = document.createElement("td");
+    cell.innerText = form[field].value;
+    row.appendChild(cell);
+  });
+
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete");
+  deleteButton.innerHTML = `<span class="material-symbols-outlined"> close </span>`;
+
+  deleteButton.addEventListener("click", function () {
+    row.remove();
+  });
+
+  const cell4 = document.createElement("td");
+  cell4.appendChild(deleteButton);
+  row.appendChild(cell4);
+
+  tbody.appendChild(row);
+  form.reset();
+});
